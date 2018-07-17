@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using Microsoft.Extensions.Configuration;
 
 namespace ConsoleApp
 {
@@ -6,7 +8,15 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var currentDirectory = Directory.GetCurrentDirectory();
+
+            var configuration =
+                new ConfigurationBuilder()
+                    .SetBasePath(currentDirectory)
+                    .AddJsonFile("appsettings.json", true, true)
+                    .Build();
+
+            Console.WriteLine(configuration["Name"]);
         }
     }
 }
