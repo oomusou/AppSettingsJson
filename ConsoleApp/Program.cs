@@ -4,16 +4,16 @@ using Microsoft.Extensions.Configuration;
 
 namespace ConsoleApp
 {
-    class Program
+    static class Program
     {
-        static void Main(string[] args)
+        private static void Main()
         {
             var currentDirectory = Directory.GetCurrentDirectory();
 
             var configuration =
                 new ConfigurationBuilder()
                     .SetBasePath(currentDirectory)
-                    .AddJsonFile("appsettings.json", true, true)
+                    .AddJsonFile("config.json", true, true)
                     .Build();
 
             Console.WriteLine(configuration["Name"]);
