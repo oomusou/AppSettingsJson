@@ -10,13 +10,13 @@ namespace ConsoleApp
         {
             var currentDirectory = Directory.GetCurrentDirectory();
 
-            var configuration =
+            var config =
                 new ConfigurationBuilder()
                     .SetBasePath(currentDirectory)
-                    .AddJsonFile("config.json", true, true)
+                    .AddJsonFile("config.json")
                     .Build();
 
-            Console.WriteLine(configuration["Name"]);
+            Console.WriteLine(config["Name"]);
         }
     }
 }
